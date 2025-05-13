@@ -63,8 +63,19 @@ public class EmployeeSort {
 		 
 		 System.out.println("\nsorting based on department then name");
 		 employees.stream()
-		 	      .sorted(Comparator.comparing(Employee::getDept))
-		 	      .forEach(e->System.out.print(e.getName()+":"+e.getDept()+"\n"));
+		 	      .sorted(Comparator.comparing(Employee::getDept).thenComparing(Employee::getName))
+		 	      .forEach(e->System.out.print(e.getName()+","+e.getDept()+"\n"));
+		 
+		 System.out.println("\nsorting based on department then name using lambda");
+		 employees.stream()
+		 	      .sorted((a,b)->{
+		 	    	  int compareTo = a.getDept().compareTo(b.getDept());
+		 	    	  if(compareTo==0) {
+		 	    		 return Integer.compare(a.getAge(), b.getAge());
+		 	    	  }
+		 	    	  return compareTo;
+		 	      })
+		 	      .forEach(e->System.out.print(e.getName()+":"+e.getDept()+","+e.getAge()+"\n"));
 		 
 		 
 		 System.out.println("\nsorting based on name length");
