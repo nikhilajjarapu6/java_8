@@ -54,8 +54,23 @@ public class EmployeeSort {
 //		 	      .sorted((a,b)->Integer.compare(a.getAge(),b.getAge()))
 //		 	      .toList();
 
-
 		 
+		 System.out.println("\nascending - salary");
+		 employees.stream()
+		 	      .sorted(Comparator.comparingDouble(Employee::getSalary))
+		 	      .forEach(e->System.out.print(e.getName()+":"+e.getSalary()+" "));
+		 
+		 
+		 System.out.println("\nsorting based on department then name");
+		 employees.stream()
+		 	      .sorted(Comparator.comparing(Employee::getDept))
+		 	      .forEach(e->System.out.print(e.getName()+":"+e.getDept()+"\n"));
+		 
+		 
+		 System.out.println("\nsorting based on name length");
+		 employees.stream()
+		 		  .sorted(Comparator.comparingInt(s->s.getName().length()))
+		 		  .forEach(Employee::employeeName);
 		 
 	}
 }
