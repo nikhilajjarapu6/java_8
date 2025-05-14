@@ -32,8 +32,8 @@ public class EmployeeSort {
 		 
 		 System.out.println("\nascending - names");
 		 employees.stream()
-	      .sorted((a,b)->a.getName().compareTo(b.getName()))
-	     .forEach(e->System.out.print(e.getName()+" "));
+			      .sorted((a,b)->a.getName().compareTo(b.getName()))
+			      .forEach(e->System.out.print(e.getName()+" "));
 		 
 		 
 		 
@@ -45,8 +45,8 @@ public class EmployeeSort {
 		 
 		 System.out.println("\ndescending - age");
 		 employees.stream()
-	      .sorted(Comparator.comparingInt(Employee::getAge).reversed())
-	      .forEach(e->System.out.print(e.getName()+":"+e.getAge()+" "));
+			      .sorted(Comparator.comparingInt(Employee::getAge).reversed())
+			      .forEach(e->System.out.print(e.getName()+":"+e.getAge()+" "));
 		 
 		 
 		 //normal  sorting
