@@ -44,6 +44,13 @@ public class Mapping {
 		System.out.println(list5);
 		
 		
+		//Mapping to Custom Output
+		List<String> list9 = names.stream()
+			 .map(name->"First Name :"+name)
+			 .toList();
+		System.out.println(list9);
+		
+		
 		//applying square function
 		List<Integer> list6 = numbers.stream()
 									   .map(number->number*number)
